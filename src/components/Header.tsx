@@ -1,6 +1,11 @@
 import { Terminal, Sparkles } from "lucide-react";
+import { ReactNode } from "react";
 
-export const Header = () => {
+type HeaderProps = {
+  children?: ReactNode;
+};
+
+export const Header = ({ children }: HeaderProps) => {
   return (
     <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -20,9 +25,12 @@ export const Header = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 border border-border">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-xs text-muted-foreground font-mono">System Online</span>
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/50 border border-border">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-xs text-muted-foreground font-mono">System Online</span>
+            </div>
+            {children}
           </div>
         </div>
       </div>
